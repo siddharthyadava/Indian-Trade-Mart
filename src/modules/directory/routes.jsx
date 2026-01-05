@@ -6,6 +6,7 @@ import MicroCategoryPage from '@/modules/directory/pages/MicroCategoryPage';
 import Directory from '@/modules/directory/pages/Directory';
 import ProductListing from '@/modules/directory/pages/ProductListing';
 import ProductDetail from '@/modules/directory/pages/ProductDetail';
+import SearchResults from '@/modules/directory/pages/SearchResults';
 
 import Home from '@/modules/directory/pages/Home';
 import AboutUs from '@/modules/directory/pages/AboutUs';
@@ -67,6 +68,13 @@ export const DirectoryRoutes = () => {
         
         <Route path="directory/vendor" element={<VendorListing />} />
         <Route path="directory/vendor/:vendorId" element={<VendorProfilePublic />} />
+
+        
+        {/* Search Results (service + optional state/city filters) */}
+        <Route path="directory/search" element={<Navigate to="/directory" replace />} />
+        <Route path="directory/search/:service" element={<SearchResults />} />
+        <Route path="directory/search/:service/:state" element={<SearchResults />} />
+        <Route path="directory/search/:service/:state/:city" element={<SearchResults />} />
       </Route>
     </Routes>
   );
